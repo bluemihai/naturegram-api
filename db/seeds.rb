@@ -6,3 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 # Environment variables (ENV['...']) can be set in the file .env file.
+
+
+(1..4).each do |idx|
+  User.create!(name: "User #{idx}", role: 'user')  
+end
+User.create!(name: "User 5", role: 'admin')
