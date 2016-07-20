@@ -12,3 +12,7 @@
   User.create!(name: "User #{idx}", role: 'user')  
 end
 User.create!(name: "User 5", role: 'admin')
+
+Location.create!(title: 'Learners Guild', city: 'Oakland')
+Location.create!(title: 'Great Mall', city: 'Milpitas')
+Location.create!(title: 'Coit Tower', city: 'San Francisco')
