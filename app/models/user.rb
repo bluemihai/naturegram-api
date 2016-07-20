@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   enum role: [:user, :vip, :admin]
   after_initialize :set_default_role, :if => :new_record?
+  has_many :pictures
 
   def set_default_role
     if User.count == 0
@@ -18,6 +19,10 @@ class User < ActiveRecord::Base
          user.name = auth['info']['name'] || ""
       end
     end
+  end
+
+  def email
+    name
   end
 
 end
