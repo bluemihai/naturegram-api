@@ -3,6 +3,10 @@ class User < ActiveRecord::Base
   after_initialize :set_default_role, :if => :new_record?
   has_many :pictures
 
+  def avatar_url
+    "http://graph.facebook.com/#{uid}/picture?type=square"
+  end
+
   def set_default_role
     if User.count == 0
       self.role ||= :admin

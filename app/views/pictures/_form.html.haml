@@ -2,11 +2,11 @@
   = f.error_notification
 
   .form-inputs
-    = f.association :location
-    = f.association :user
-    = f.input :description
+    = f.input :pic_url, autofocus: true
     = f.input :title
-    = f.input :pic_url
+    = f.association :location
+    = f.input :description
+    = f.association :user, selected: current_user.id#, disabled: true, hint: 'You cannot add a picture for someone else.'
 
   .form-actions
     = f.button :submit

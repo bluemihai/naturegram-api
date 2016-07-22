@@ -1,0 +1,9 @@
+%h3 User
+%p= "Name: #{@user.name}" if @user.name
+
+%h5 Pictures
+
+%ul
+  - @user.pictures.each do |pic|
+    %li= image_tag(pic.pic_url, width: 100, height: 100)
+
