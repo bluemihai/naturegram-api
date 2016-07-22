@@ -8,13 +8,27 @@
 # Environment variables (ENV['...']) can be set in the file .env file.
 
 
-(1..4).each do |idx|
+a = User.create!(name: "Abigail", role: 'admin')
+(2..5).each do |idx|
   User.create!(name: "User #{idx}", role: 'user')  
 end
-User.create!(name: "User 5", role: 'admin')
 
 lg = Location.create!(title: 'Learners Guild', city: 'Oakland')
 Location.create!(title: 'Great Mall', city: 'Milpitas')
 Location.create!(title: 'Coit Tower', city: 'San Francisco')
 
-Picture.create(title: 'Flower', location: lg)
+abigail_photos = [
+  'http://i.imgur.com/vDB8nSwl.jpg',
+  'http://i.imgur.com/GCe56pml.jpg',
+  'http://i.imgur.com/9rF0uUwl.jpg',
+  'http://i.imgur.com/QnhaauEl.jpg',
+  'http://i.imgur.com/9OQnnl1l.jpg',
+  'http://i.imgur.com/s01Nzdvl.jpg?1',
+  'http://i.imgur.com/YDzyl72l.jpg',
+  'http://i.imgur.com/R7OVO4Hl.jpg',
+  'http://i.imgur.com/hAo336zl.jpg'
+]
+
+abigail_photos.each_with_index do |photo_url, idx|
+  a.pictures.create(title: "Picture #{idx}", pic_url: photo_url, location: lg)
+end
